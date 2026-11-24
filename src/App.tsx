@@ -192,6 +192,16 @@ const App: React.FC = () => {
             </label>
           </div>
 
+          <label className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-slate-700">
+            <input
+              type="checkbox"
+              checked={isBlocked}
+              onChange={(e) => setIsBlocked(e.target.checked)}
+              className="h-4 w-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+            />
+            Room blocked (maintenance)
+          </label>
+          
           {/* Live meta */}
           <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-1 text-xs text-slate-500">
             <span>Requested duration: <strong className="text-slate-700">{durationStr}</strong></span>
