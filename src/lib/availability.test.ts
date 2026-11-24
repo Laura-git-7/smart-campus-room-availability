@@ -126,8 +126,13 @@ describe('AC3: room block check', () => {
     expect(check(room, at(9), at(10), at(10, 30)).reasons).toHaveLength(1);
   });
 
-  it('keeps the sample room unavailable for any interval', () => {
-    expect(check(sampleRoom, at(7), at(13), at(14)).decision).toBe('unavailable');
+  it('sample room is available for a free slot when it is not blocked', () => {
+    expect(check(sampleRoom, at(7), at(11), at(12)).decision).toBe('available');
+  });
+
+  it('sample room becomes unavailable for the same slot when blocked', () => {
+    const blockedRoom = { ...sampleRoom, blocked: true };
+    expect(check(blockedRoom, at(7), at(11), at(12)).decision).toBe('unavailable');
   });
 });
 
