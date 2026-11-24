@@ -2,7 +2,7 @@
 Smart Campus room availability checker; one room, fictional data, built in Bolt.new.
 
 ## Constraints
-- Preserve AC1–AC6 (booking rules, working hours 08:00–20:00, duration 15–240 mins, room block check, conflict detection).
+- Preserve AC1–AC6 (future start time, duration 1–120 min, overlap detection, room block check, no mutation of bookings, clear validation messages).
 - No backend, database, user login, or permanent booking creation required.
 
 ## Engineering rules
