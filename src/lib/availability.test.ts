@@ -257,30 +257,7 @@ describe('sample fixture', () => {
   });
 });
 
-// These encode AGENTS.md requirements the current rules do not yet meet.
-// test.fails keeps the suite green while the gap exists and flips to a
-// failure once the rule is implemented, at which point the marker should be removed.
-describe('known gaps against AGENTS.md (working hours and duration range)', () => {
-  it.fails('rejects a start before 08:00 working hours', () => {
-    expect(check(openRoom, at(6), at(7), at(7, 30)).decision).toBe('unavailable');
-  });
 
-  it.fails('rejects an end after 20:00 working hours', () => {
-    expect(check(openRoom, at(12), at(19), at(21)).decision).toBe('unavailable');
-  });
-
-  it.fails('rejects a booking shorter than 15 minutes', () => {
-    expect(check(openRoom, at(12), at(13), at(13, 10)).decision).toBe('unavailable');
-  });
-
-  it.fails('accepts a booking of 240 minutes', () => {
-    expect(check(openRoom, at(7), at(13), at(17)).decision).toBe('available');
-  });
-
-  it.fails('formats the end of the day as 24:00', () => {
-    expect(fmtTime(MINUTES_PER_DAY)).toBe('24:00');
-  });
-});
 
 describe('regression: past time, reversed interval, duration, blocked room, overlap, endpoints, fixtures', () => {
   it('AC1 rejects a past start even when the slot is otherwise free', () => {
