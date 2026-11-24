@@ -29,7 +29,16 @@ import {
 } from '@/lib/explainAdapter';
 
 const App: React.FC = () => {
-  const [room] = useState<Room>(sampleRoom);
+  const [isBlocked, setIsBlocked] = useState<boolean>(false);
+  // Derived copy: the sampleRoom fixture itself is never mutated (AC5).
+  const room = useMemo<Room>(
+    () => ({
+      ...sampleRoom,
+      blocked: isBlocked,
+      blockReason: isBlocked ? 'Maintenance' : undefined,
+    }),
+    [isBlocked]
+  );
 
   const [currentStr, setCurrentStr] = useState<string>('13:00');
   const [startStr, setStartStr] = useState<string>('14:30');
