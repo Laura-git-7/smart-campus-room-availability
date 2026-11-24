@@ -6,7 +6,7 @@ export const sampleRoom: Room = {
   name: 'Engineering Hall 204',
   building: 'Engineering Hall',
   capacity: 32,
-  blocked: true,
+  blocked: false,
   blockReason: undefined,
   bookings: [
     { id: 'b1', title: 'Intro to Circuits', start: 510, end: 570, organizer: 'Prof. Tanaka' },
