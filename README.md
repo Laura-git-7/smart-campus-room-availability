@@ -18,9 +18,11 @@ npm run typecheck  # tsc --noEmit -p tsconfig.app.json
 
 ## Rules (AC1–AC6)
 
-Working hours 08:00–20:00, duration 15–240 minutes, past and reversed
-intervals rejected, blocked room rejected, overlap with an existing
-booking rejected (touching endpoints allowed). Fixtures are never mutated.
+AC1 start must be strictly after the current time (valid, forward interval
+within 00:00–24:00); AC2 duration greater than zero and at most 120 minutes;
+AC3 blocked room is unavailable; AC4 overlapping bookings are unavailable
+(touching endpoints allowed); AC5 checks never change existing bookings;
+AC6 invalid input gets an understandable reason.
 See AGENTS.md for constraints and verification rules.
 
 ## Project layout
